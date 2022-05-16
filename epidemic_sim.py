@@ -6,7 +6,7 @@ from random import randint
 # Constants
 SCREEN_SIZE = WIDTH, HEIGHT = (1280, 720)
 NUMBER_OF_PEOPLE = 50
-PERSON_SPEED = 50
+PERSON_SPEED = 20
 PERSON_COLOR_CLEAR = (200,150,0)
 PERSON_COLOR_INFECTED = (200,0,0)
 PERSON_COLOR_IMMUNE =(0,150,0)
@@ -139,6 +139,17 @@ def draw(people):
 	textRect.left = 450
 	textRect.top = 10
 	screen.blit(text, textRect)
+
+	text = font.render("Clear:      Infected:      Immune:      Mask:", True, (200,200,200))
+	textRect = text.get_rect()
+	textRect.left = 700
+	textRect.top = 10
+	screen.blit(text, textRect)
+
+	pygame.draw.circle(screen, PERSON_COLOR_CLEAR, (800, 27), 15, 0)
+	pygame.draw.circle(screen, PERSON_COLOR_INFECTED, (960, 27), 15, 0)
+	pygame.draw.circle(screen, PERSON_COLOR_IMMUNE, (1125, 27), 15, 0)
+	pygame.draw.circle(screen, PERSON_COLOR_CLEAR, (1255, 27), 15, 5)
 
 	pygame.display.update()
 	fps.tick(PERSON_SPEED)
